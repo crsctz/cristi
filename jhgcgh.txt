@@ -1,2 +1,27 @@
-tfughcvkghviutg
-biluhvphi
+<!doctype html>
+       <html ng-app>
+         <head>
+           <title>Angular - My Notes</title>
+           <link rel="stylesheet" type="text/css" href="css/index.css">
+
+         <body>
+           <h1>My Notes</h1>
+           <div ng-controller="Note">
+             <input type="text" placeholder="Question">
+             <input ng-class="{'blockInput': !inlineChecked}" type="text" placeholder="enter text...">
+             <input type="checkbox" name="check" value="inline" ng-model="inlineChecked"> Inline
+             <br>
+             <button ng-click="add()">New Item</button>
+           </div>
+
+           <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.13/angular.min.js"></script>
+           <script type="text/javascript">
+
+             var Note = function($scope){
+               // create a variable contain new input forms??
+             }
+
+
+           </script>
+         </body>
+       </html>
