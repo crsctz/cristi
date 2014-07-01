@@ -1,3 +1,4 @@
+
 function ClickToEditCtrl($scope) {
 
     $scope.editorEnabled = false;
@@ -17,4 +18,4 @@ function ClickToEditCtrl($scope) {
         $scope.todo.descriere = $scope.editableTitle1;
         $scope.disableEditor();
     };
-}
+};

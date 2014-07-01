@@ -4,7 +4,7 @@ function cumparaturi($scope) {
 
     $scope.controller = function () {
         $scope.checked = !$scope.checked;
-    }
+    };
 
     $scope.produs = {
         text: '',
@@ -17,20 +17,19 @@ function cumparaturi($scope) {
             $scope.produs={
                 text: '',
                 descriere: ''};
-         }
-    };
+         };
+
 
 
     $scope.archive = function() {
-        var oldTodos = $scope.todos;
-        $scope.todos = [];
-        angular.forEach(oldTodos, function(todo) {
-            if (!todo.done) $scope.todos.push(todo);
-        });
+    var oldTodos = $scope.todos;
+    $scope.todos = [];
+    angular.forEach(oldTodos, function(todo) {
+        if (!todo.done) $scope.todos.push(todo);
+    });
 
 
+};
 
 
-    };
-
-
+};

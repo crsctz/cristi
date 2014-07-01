@@ -14,17 +14,17 @@
 
         [ <a href="" ng-click="archive()">stergere produse cumparate</a> ]
 
+        <input type="text" ng-model="search"  /> Search<br />
 
-
-        <ul class="bla">
-            <li    ng-repeat="todo in todos" ng-controller="ClickToEditCtrl">
+        <ul class="unstyled">
+            <li    ng-repeat="todo in todos  | filter:search" ng-controller="ClickToEditCtrl">
 
 
 
                 <div ng-hide="editorEnabled">
                     <input type="checkbox" ng-model="todo.done">
-                    <span editable-text="user.name">Nume: {{todo.text}} ---></span>
-                    <span editable-text="user.name">Descriere:{{todo.descriere}}</span>
+                    <span  class="done-{{todo.done}}">Nume: {{todo.text}} ---></span>
+                    <span  class="done-{{todo.done}}">Descriere:{{todo.descriere}}</span>
                     <a href="#" ng-click="enableEditor()">Edit </a>
                 </div>
                 <div ng-show="editorEnabled">
@@ -32,12 +32,9 @@
                     <input ng-model="editableTitle1" ng-show="editorEnabled">
 
                     <a href="#" ng-click="save()">Save</a>
-                    or
+
                     <a href="#" ng-click="disableEditor()">cancel</a>.
                 </div>
-
-
-
 
 
                     <form   ng-show="checked1">
