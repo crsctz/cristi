@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Lista cumparaturi</title>
+</head>
+<body>
+
+<div ng-app>
+    <h2>Lista cumparaturi</h2>
+
+    <div ng-controller="cumparaturi">
+
+        [ <a href="" ng-click="archive()">stergere produse cumparate</a> ]
+
+
+
+        <ul class="bla">
+            <li    ng-repeat="todo in todos">
+
+                <input type="checkbox" ng-model="todo.done">
+                <span >Nume: {{todo.text}} ---></span>
+                <span >Descriere:{{todo.descriere}}</span>
+                <input type="button" value="edit" ng-click="checked1 = !checked1">
+
+
+
+
+
+                <form   ng-show="checked1">
+                <input  ng-model="todo.text" type="text"   size="30" placeholder="numele produsului">
+                <input  ng-model="todo.descriere" type="text"   size="30" placeholder="descrierea produsului">
+
+                </form>
+
+            </li>
+        </ul>
+
+
+
+        <div>
+            <input type="button" value="Afiseaza formular" ng-click="controller()">
+        </div>
+
+
+        <form ng-submit="addTodo()" ng-show="checked" >
+
+
+            <input type="text" ng-model="produs.text"  size="30"
+                   placeholder="add new todo here">
+
+            <input type="text" ng-model="produs.descriere"  size="30"
+                   placeholder="add new todo here">
+
+            <input class="btn-primary" type="submit" value="add">
+        </form>
+    </div>
+</div>
+
+
+<script type="text/javascript" src="j1.js"> </script>
+<script type="text/javascript" src="angular.js"> </script>
+</body>
+</html>
