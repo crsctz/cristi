@@ -8,15 +8,19 @@ function cumparaturi($scope) {
 
     $scope.produs = {
         text: '',
-        descriere: ''
+        descriere: '',
+        categorie: ''
     };
+
 
     $scope.addTodo = function() {
 
             $scope.todos.push($scope.produs);
             $scope.produs={
                 text: '',
-                descriere: ''};
+                descriere: '',
+                categorie:''
+            };
          };
 
 

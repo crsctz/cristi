@@ -6,66 +6,266 @@
     <link rel="stylesheet" type="text/css" href="style.css" >
 </head>
 <body>
-
 <div ng-app>
-    <h2>Lista cumparaturi</h2>
+<section>
+    <ul class="selectie">
+        <li><a href ng-click="tab=1" >lista1</a></li>
+        <li><a href ng-click="tab=2">lista2</a></li>
+        <li><a href ng-click="tab=3">lista3</a></li>
+    </ul>
+</section>
 
-    <div ng-controller="cumparaturi">
+<div class="pannel" ng-show="tab===1">
+    <div>
 
-        [ <a href="" ng-click="archive()">stergere produse cumparate</a> ]
+        <input class="btn-primary" type="submit" value="Lista noua">
 
-        <input type="text" ng-model="search"  /> Search<br />
+        <h2>Lista cumparaturi 1</h2>
 
-        <ul class="unstyled">
-            <li    ng-repeat="todo in todos  | filter:search" ng-controller="ClickToEditCtrl">
+        <div ng-controller="cumparaturi">
 
+            [ <a href="" ng-click="archive()">stergere produse cumparate</a> ]
 
+            <input type="text" ng-model="search"  /> Search<br />
+            <!--
+                        <div >
+                            <form action="" ng-click="search" >
+                                <input  type="radio" name="dada" value="male">mezeluiri<br>
+                                <input type="radio" name="dada" value="male">electrocaznice<br>
+                                <input type="radio" name="dada" value="male">banane<br>
+                                <input type="radio" name="dada" value="female">angular tata
+                            </form>
+                        </div>-->
 
-                <div ng-hide="editorEnabled">
-                    <input type="checkbox" ng-model="todo.done">
-                    <span  class="done-{{todo.done}}">Nume: {{todo.text}} ---></span>
-                    <span  class="done-{{todo.done}}">Descriere:{{todo.descriere}}</span>
-                    <a href="#" ng-click="enableEditor()">Edit </a>
-                </div>
-                <div ng-show="editorEnabled">
-                    <input ng-model="editableTitle" ng-show="editorEnabled">
-                    <input ng-model="editableTitle1" ng-show="editorEnabled">
+            <ul class="unstyled">
+                <li    ng-repeat="todo in todos  | filter:search" ng-controller="ClickToEditCtrl">
 
-                    <a href="#" ng-click="save()">Save</a>
+                    <div ng-hide="editorEnabled">
+                        <input type="checkbox" ng-model="todo.done">
+                        <span  class="done-{{todo.done}}">Nume: {{todo.text}} --------</span>
+                        <span  class="done-{{todo.done}}">Descriere: {{todo.descriere}} -------</span>
+                        <span  class="done-{{todo.done}}">Categorie: {{todo.categorie}} -------</span>
+                        <a href="#" ng-click="enableEditor()">Edit </a>
+                    </div>
+                    <div ng-show="editorEnabled">
+                        <input ng-model="editableTitle" ng-show="editorEnabled">
+                        <input ng-model="editableTitle1" ng-show="editorEnabled">
+                        <select ng-model="editableTitle2">
+                            <option >mezeluiri</option>
+                            <option >electrocaznice</option>
+                            <option >banane</option>
+                            <option >angular tata</option>
+                        </select>
+                        <a href="#" ng-click="save()">Save</a>
 
-                    <a href="#" ng-click="disableEditor()">cancel</a>.
-                </div>
-
+                        <a href="#" ng-click="disableEditor()">cancel</a>.
+                    </div>
 
                     <form   ng-show="checked1">
-                <input  ng-model="todo.text" type="text"   size="30" placeholder="numele produsului">
-                <input  ng-model="todo.descriere" type="text"   size="30" placeholder="descrierea produsului">
+                        <input  ng-model="todo.text" type="text"   size="30" placeholder="numele produsului">
+                        <input  ng-model="todo.descriere" type="text"   size="30" placeholder="descrierea produsului">
 
-                </form>
+                    </form>
 
-            </li>
-        </ul>
+                </li>
+            </ul>
+
+            <div>
+                <input type="button" value="Afiseaza formular" ng-click="controller()">
+            </div>
 
 
+            <form ng-submit="addTodo()" ng-show="checked" >
 
-        <div>
-            <input type="button" value="Afiseaza formular" ng-click="controller()">
+
+                <input type="text" ng-model="produs.text"  size="30"
+                       placeholder="add new todo here">
+
+                <input type="text" ng-model="produs.descriere"  size="30"
+                       placeholder="add new todo here">
+
+                <select ng-model="produs.categorie">
+                    <option >mezeluiri</option>
+                    <option >electrocaznice</option>
+                    <option >banane</option>
+                    <option >angular tata</option>
+                </select>
+
+                <input class="btn-primary" type="submit" value="add">
+            </form>
         </div>
 
 
-        <form ng-submit="addTodo()" ng-show="checked" >
+
+    </div></div>
+
+<div class="pannel" ng-show="tab===2">
+    <div>
+
+        <input class="btn-primary" type="submit" value="Lista noua">
+
+        <h2>Lista cumparaturi 2</h2>
+
+        <div ng-controller="cumparaturi">
+
+            [ <a href="" ng-click="archive()">stergere produse cumparate</a> ]
+
+            <input type="text" ng-model="search"  /> Search<br />
+            <!--
+                        <div >
+                            <form action="" ng-click="search" >
+                                <input  type="radio" name="dada" value="male">mezeluiri<br>
+                                <input type="radio" name="dada" value="male">electrocaznice<br>
+                                <input type="radio" name="dada" value="male">banane<br>
+                                <input type="radio" name="dada" value="female">angular tata
+                            </form>
+                        </div>-->
+
+            <ul class="unstyled">
+                <li    ng-repeat="todo in todos  | filter:search" ng-controller="ClickToEditCtrl">
+
+                    <div ng-hide="editorEnabled">
+                        <input type="checkbox" ng-model="todo.done">
+                        <span  class="done-{{todo.done}}">Nume: {{todo.text}} --------</span>
+                        <span  class="done-{{todo.done}}">Descriere: {{todo.descriere}} -------</span>
+                        <span  class="done-{{todo.done}}">Categorie: {{todo.categorie}} -------</span>
+                        <a href="#" ng-click="enableEditor()">Edit </a>
+                    </div>
+                    <div ng-show="editorEnabled">
+                        <input ng-model="editableTitle" ng-show="editorEnabled">
+                        <input ng-model="editableTitle1" ng-show="editorEnabled">
+                        <select ng-model="editableTitle2">
+                            <option >mezeluiri</option>
+                            <option >electrocaznice</option>
+                            <option >banane</option>
+                            <option >angular tata</option>
+                        </select>
+                        <a href="#" ng-click="save()">Save</a>
+
+                        <a href="#" ng-click="disableEditor()">cancel</a>.
+                    </div>
+
+                    <form   ng-show="checked1">
+                        <input  ng-model="todo.text" type="text"   size="30" placeholder="numele produsului">
+                        <input  ng-model="todo.descriere" type="text"   size="30" placeholder="descrierea produsului">
+
+                    </form>
+
+                </li>
+            </ul>
+
+            <div>
+                <input type="button" value="Afiseaza formular" ng-click="controller()">
+            </div>
 
 
-            <input type="text" ng-model="produs.text"  size="30"
-                   placeholder="add new todo here">
+            <form ng-submit="addTodo()" ng-show="checked" >
 
-            <input type="text" ng-model="produs.descriere"  size="30"
-                   placeholder="add new todo here">
 
-            <input class="btn-primary" type="submit" value="add">
-        </form>
-    </div>
+                <input type="text" ng-model="produs.text"  size="30"
+                       placeholder="add new todo here">
 
+                <input type="text" ng-model="produs.descriere"  size="30"
+                       placeholder="add new todo here">
+
+                <select ng-model="produs.categorie">
+                    <option >mezeluiri</option>
+                    <option >electrocaznice</option>
+                    <option >banane</option>
+                    <option >angular tata</option>
+                </select>
+
+                <input class="btn-primary" type="submit" value="add">
+            </form>
+        </div>
+
+
+
+    </div></div>
+
+<div class="pannel" ng-show="tab===3">
+    <div>
+
+        <input class="btn-primary" type="submit" value="Lista noua">
+
+        <h2>Lista cumparaturi 3</h2>
+
+        <div ng-controller="cumparaturi">
+
+            [ <a href="" ng-click="archive()">stergere produse cumparate</a> ]
+
+            <input type="text" ng-model="search"  /> Search<br />
+            <!--
+                        <div >
+                            <form action="" ng-click="search" >
+                                <input  type="radio" name="dada" value="male">mezeluiri<br>
+                                <input type="radio" name="dada" value="male">electrocaznice<br>
+                                <input type="radio" name="dada" value="male">banane<br>
+                                <input type="radio" name="dada" value="female">angular tata
+                            </form>
+                        </div>-->
+
+            <ul class="unstyled">
+                <li    ng-repeat="todo in todos  | filter:search" ng-controller="ClickToEditCtrl">
+
+                    <div ng-hide="editorEnabled">
+                        <input type="checkbox" ng-model="todo.done">
+                        <span  class="done-{{todo.done}}">Nume: {{todo.text}} --------</span>
+                        <span  class="done-{{todo.done}}">Descriere: {{todo.descriere}} -------</span>
+                        <span  class="done-{{todo.done}}">Categorie: {{todo.categorie}} -------</span>
+                        <a href="#" ng-click="enableEditor()">Edit </a>
+                    </div>
+                    <div ng-show="editorEnabled">
+                        <input ng-model="editableTitle" ng-show="editorEnabled">
+                        <input ng-model="editableTitle1" ng-show="editorEnabled">
+                        <select ng-model="editableTitle2">
+                            <option >mezeluiri</option>
+                            <option >electrocaznice</option>
+                            <option >banane</option>
+                            <option >angular tata</option>
+                        </select>
+                        <a href="#" ng-click="save()">Save</a>
+
+                        <a href="#" ng-click="disableEditor()">cancel</a>.
+                    </div>
+
+                    <form   ng-show="checked1">
+                        <input  ng-model="todo.text" type="text"   size="30" placeholder="numele produsului">
+                        <input  ng-model="todo.descriere" type="text"   size="30" placeholder="descrierea produsului">
+
+                    </form>
+
+                </li>
+            </ul>
+
+            <div>
+                <input type="button" value="Afiseaza formular" ng-click="controller()">
+            </div>
+
+
+            <form ng-submit="addTodo()" ng-show="checked" >
+
+
+                <input type="text" ng-model="produs.text"  size="30"
+                       placeholder="add new todo here">
+
+                <input type="text" ng-model="produs.descriere"  size="30"
+                       placeholder="add new todo here">
+
+                <select ng-model="produs.categorie">
+                    <option >mezeluiri</option>
+                    <option >electrocaznice</option>
+                    <option >banane</option>
+                    <option >angular tata</option>
+                </select>
+
+                <input class="btn-primary" type="submit" value="add">
+            </form>
+        </div>
+
+
+
+    </div></div>
 
 
 </div>
